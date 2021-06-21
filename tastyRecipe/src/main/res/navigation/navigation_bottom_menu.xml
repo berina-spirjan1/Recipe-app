@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigaciona_traka"
+    app:startDestination="@id/prviFragment">
+
+    <fragment
+        android:id="@+id/prviFragment"
+        android:name="com.codingwithme.tastyRecipes.fragments.FirstFragment"
+        android:label="Discover"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_prviFragment_to_drugiFragment"
+            app:destination="@id/drugiFragment"
+            app:popUpTo="@id/prviFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_prviFragment_to_treciFragment"
+            app:destination="@id/treciFragment"
+            app:popUpTo="@id/prviFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/drugiFragment"
+        android:name="com.codingwithme.tastyRecipes.fragments.SecondFragment"
+        android:label="Write Recipe"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_drugiFragment_to_prviFragment2"
+            app:destination="@id/prviFragment"
+            app:popUpTo="@id/drugiFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/treciFragment"
+        android:name="com.codingwithme.tastyRecipes.fragments.ThirdFragment"
+        android:label="My Recipes"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_treciFragment_to_drugiFragment"
+            app:destination="@id/drugiFragment"
+            app:popUpTo="@id/treciFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_treciFragment_to_updateFragment"
+            app:destination="@id/updateMyRecipesFragment"
+            app:popUpTo="@id/treciFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_treciFragment_to_prviFragment"
+            app:destination="@id/prviFragment"
+            app:popUpTo="@id/treciFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateMyRecipesFragment"
+        android:name="com.codingwithme.tastyRecipes.fragments.UpdateMyRecipesFragment"
+        android:label="Update Recipe"
+        tools:layout="@layout/fragment_update_my_recipes">
+        <action
+            android:id="@+id/action_updateMyRecipesFragment_to_treciFragment"
+            app:destination="@id/treciFragment"
+            app:popUpTo="@id/updateMyRecipesFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.codingwithme.tastyRecipes.entities.MyRecipes" />
+    </fragment>
+</navigation>
